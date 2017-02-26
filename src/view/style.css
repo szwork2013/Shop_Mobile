@@ -1,0 +1,106 @@
+.page {
+  padding-top: 0.99rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-width: 640px;
+  max-width: 1280px;
+  height: 50px;
+  z-index: 1;
+}
+
+.mainFooter {
+  float: left;
+  width: 100%;
+  height: 1.3rem;
+}
+
+.productCard {
+  float: left;
+  display: block;
+  width: 47%;
+  margin: 2% 0 0 2%;
+  background: #fff;
+  border-radius: 0.06rem;
+  /*padding-bottom: 10%;*/
+}
+
+.productCardImage {
+  width: 100%;
+}
+
+.productCardName {
+
+}
+
+.productCardPrice {
+  color: #333333;
+  font-size: .3rem;
+  font-weight: 700;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-width: 640px;
+  max-width: 1280px;
+  border-top: 1PX solid #ddd;
+  height: 0.99rem;
+}
+
+.apply {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  line-height: 0.99rem;
+  text-align: center;
+  background-color: #108ee9;
+}
+
+.cancel {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  line-height: 0.99rem;
+  text-align: center;
+  background-color: #dd514c;
+}
+
+.limit {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  line-height: 0.99rem;
+  text-align: center;
+  background-color: #50AB32;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-image: url("../assets/image/avatar.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.name {
+  position: absolute;
+  top: 50px;
+  left: 140px;
+  width: 120px;
+  height: 50px;
+}
+
+.clazz {
+  position: absolute;
+  top: 100px;
+  left: 140px;
+  width: 160px;
+  height: 50px;
+}
