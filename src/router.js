@@ -17,8 +17,14 @@ import database from './util/database';
 export default function ({history}) {
 
     const validate = function (next, replace, callback) {
-        if ((database.getToken() == '' || database.getToken() == null) && next.location.pathname != '/login') {
-            // replace('/login');
+        // if ((database.getToken() == '' || database.getToken() == null) && next.location.pathname != '/login' && next.location.pathname == '/mine') {
+        //     replace('/login');
+        // }
+
+        if (next.location.pathname == '/mine' || next.location.pathname == '/cart') {
+            if ((database.getToken() == '' || database.getToken() == null)) {
+                    replace('/login');
+                }
         }
 
         callback();
@@ -26,10 +32,10 @@ export default function ({history}) {
 
     return (
         <Router history={history}>
-            <Route path="/">
+            <Route path="/" onEnter={validate}>
                 <IndexRedirect to="home"/>
                 <Route path="login" component={Login}/>
-                <Route component={Main} onEnter={validate}>
+                <Route component={Main}>
                     <Route path="home" component={Home}/>
                     <Route path="category" component={Category}/>
                     <Route path="cart" component={Cart}/>
