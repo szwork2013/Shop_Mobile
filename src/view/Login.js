@@ -57,7 +57,7 @@ class Login extends Component {
 
         return (
             <div>
-                <NavBar className={style.header} mode="dark" iconName={false}>学生登录</NavBar>
+                <NavBar className={style.header} mode="dark" iconName={false}>用户登录</NavBar>
                 <div className={style.page}>
                     <form style={{margin: '50px 10px 0px 10px'}}>
                         <List>
@@ -65,14 +65,14 @@ class Login extends Component {
                                 {...getFieldProps('user_account', {
                                     rules: [{
                                         required: true,
-                                        message: '请输入学号'
+                                        message: '请输入帐号'
                                     }],
                                     initialValue: ''
                                 })}
                                 error={!!getFieldError('user_account')}
                                 clear
-                                placeholder="请输入学号"
-                            >学号</InputItem>
+                                placeholder="请输入帐号"
+                            >帐号</InputItem>
                             <InputItem
                                 {...getFieldProps('user_password', {
                                     rules: [{
@@ -91,13 +91,6 @@ class Login extends Component {
                     <div style={{margin: '50px 10px 0px 10px'}}>
                         <Button type="primary" onClick={this.handleSubmit.bind(this)}>确定</Button>
                     </div>
-                    <div style={{
-                        backgroundImage: 'url(' + require('../assets/image/logo.png') + ')',
-                        margin: '40px 10px 50px 10px',
-                        height: '100px',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'contain'
-                    }}></div>
                 </div>
             </div>
         );

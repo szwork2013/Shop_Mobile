@@ -24,16 +24,16 @@ class Mine extends Component {
 
     }
 
-    handleCourse() {
+    handleOrder() {
         this.props.dispatch(routerRedux.push({
-            pathname: '/apply',
+            pathname: '/order/index',
             query: {}
         }));
     }
 
-    handlePassword() {
+    handleDelivery() {
         this.props.dispatch(routerRedux.push({
-            pathname: '/password',
+            pathname: '/delivery/index',
             query: {}
         }));
     }
@@ -65,19 +65,19 @@ class Mine extends Component {
                     <List>
                         <Item>
                             <div className={style.avatar}></div>
-                            <div className={style.name}>{database.getName()}</div>
-                            <div className={style.clazz}>{database.getClazz()}班级学生</div>
+                            <div className={style.name}>钟永强</div>
+                            <div className={style.clazz}>15900672218</div>
                         </Item>
                     </List>
                     <WhiteSpace size="lg"/>
                     <List>
-                        <Item thumb={require('../assets/image/appreciate.png')} arrow="horizontal"
-                              onClick={this.handleCourse.bind(this)}>
-                            我的课程
+                        <Item thumb={require('../assets/image/order.png')} arrow="horizontal"
+                              onClick={this.handleOrder.bind(this)}>
+                            我的订单
                         </Item>
-                        <Item thumb={require('../assets/image/settings.png')} arrow="horizontal"
-                              onClick={this.handlePassword.bind(this)}>
-                            修改密码
+                        <Item thumb={require('../assets/image/location.png')} arrow="horizontal"
+                              onClick={this.handleDelivery.bind(this)}>
+                            收货地址
                         </Item>
                     </List>
                     <div style={{margin: '50px 10px 0px 10px'}}>

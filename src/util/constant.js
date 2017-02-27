@@ -39,8 +39,8 @@ export default {
   placeholder: '请输入',
   platform: 'H5',
   version: '1.0.0',
-  // host: 'http://localhost:8080',
-  host: 'http://api.xietong.nowui.com',
+  host: 'http://localhost:8080',
+  // host: 'http://api.xietong.nowui.com',
   course_time: [{
     value: '17',
     text: '星期一第七节'
