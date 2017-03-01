@@ -9,7 +9,7 @@ import database from '../util/database';
 import http from '../util/http';
 import style from './style.css';
 
-class Login extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
 
@@ -52,11 +52,8 @@ class Login extends Component {
         });
     }
 
-    handleRegister() {
-        this.props.dispatch(routerRedux.push({
-            pathname: '/register',
-            query: {}
-        }));
+    handleLeftClick() {
+        this.props.dispatch(routerRedux.goBack());
     }
 
     render() {
@@ -64,19 +61,20 @@ class Login extends Component {
 
         return (
             <div>
-                <NavBar className={style.header} mode="dark" iconName={false}>用户登录</NavBar>
+                <NavBar className={style.header} mode="dark" leftContent="返回"
+                        onLeftClick={this.handleLeftClick.bind(this)}>用户注册</NavBar>
                 <div className={style.page}>
                     <form style={{margin: '50px 10px 0px 10px'}}>
                         <List>
                             <InputItem
-                                {...getFieldProps('user_phone', {
+                                {...getFieldProps('user_account', {
                                     rules: [{
                                         required: true,
                                         message: '请输入帐号'
                                     }],
                                     initialValue: ''
                                 })}
-                                error={!!getFieldError('user_phone')}
+                                error={!!getFieldError('user_account')}
                                 clear
                                 placeholder="请输入帐号"
                             >帐号</InputItem>
@@ -93,13 +91,23 @@ class Login extends Component {
                                 placeholder="请输入密码"
                                 type="password"
                             >密码</InputItem>
+                            <InputItem
+                                {...getFieldProps('user_password_2', {
+                                    rules: [{
+                                        required: true,
+                                        message: '请输入确认密码'
+                                    }],
+                                    initialValue: ''
+                                })}
+                                error={!!getFieldError('user_password_2')}
+                                clear
+                                placeholder="请输入密码"
+                                type="password"
+                            >确认密码</InputItem>
                         </List>
                     </form>
                     <div style={{margin: '50px 10px 0px 10px'}}>
                         <Button type="primary" onClick={this.handleSubmit.bind(this)}>确定</Button>
-                    </div>
-                    <div style={{margin: '20px 10px 0px 10px'}}>
-                        <div style={{textAlign: 'right'}} onClick={this.handleRegister.bind(this)}>免费注册</div>
                     </div>
                 </div>
             </div>
@@ -107,8 +115,8 @@ class Login extends Component {
     }
 }
 
-Login.propTypes = {};
+Register.propTypes = {};
 
-Login = createForm()(Login);
+Register = createForm()(Register);
 
-export default connect(({}) => ({}))(Login);
+export default connect(({}) => ({}))(Register);

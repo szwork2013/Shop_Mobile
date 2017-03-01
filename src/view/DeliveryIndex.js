@@ -12,9 +12,7 @@ class DeliveryIndex extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     componentDidMount() {
@@ -33,7 +31,12 @@ class DeliveryIndex extends Component {
                 page_size: 10
             },
             success: function (json) {
-                console.log(json);
+                this.props.dispatch({
+                    type: 'delivery/fetch',
+                    data: {
+                        list: json.data
+                    }
+                });
             }.bind(this),
             complete: function () {
 
@@ -45,22 +48,32 @@ class DeliveryIndex extends Component {
         this.props.dispatch(routerRedux.goBack());
     }
 
+    handleAddClick() {
+        this.props.dispatch(routerRedux.push({
+            pathname: '/delivery/add',
+            query: {}
+        }));
+    }
+
     render() {
         const Item = List.Item;
 
         return (
             <div>
-                <NavBar className={style.header} mode="dark" leftContent="返回"
+                <NavBar className={style.header} mode="dark" leftContent="返回" rightContent={[<div onClick={this.handleAddClick.bind(this)}>新增</div>]}
                         onLeftClick={this.handleLeftClick.bind(this)}>快递地址</NavBar>
                 <div className={style.page}>
                     <WhiteSpace size="lg"/>
                     <List>
-                        <Item extra="￥100.00">
-                            商品金额
-                        </Item>
-                        <Item extra="-￥1.00">
-                            订单运费
-                        </Item>
+                        {
+                            this.props.delivery.list.map(function (item) {
+                                return (
+                                    <Item extra="￥100.00" key={item.delivery_id}>
+                                        {item.delivery_name}
+                                    </Item>
+                                )
+                            }.bind(this))
+                        }
                     </List>
                 </div>
             </div>

@@ -32,6 +32,7 @@ export default function http(config) {
       'Version': constant.version
     },
     method: 'POST',
+      mode: 'cors',
     body: JSON.stringify(config.data)
   }));
 
