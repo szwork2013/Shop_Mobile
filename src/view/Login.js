@@ -74,7 +74,7 @@ class Login extends Component {
                                         required: true,
                                         message: '请输入帐号'
                                     }],
-                                    initialValue: ''
+                                    initialValue: '15900672218'
                                 })}
                                 error={!!getFieldError('user_phone')}
                                 clear
@@ -86,7 +86,7 @@ class Login extends Component {
                                         required: true,
                                         message: '请输入密码'
                                     }],
-                                    initialValue: ''
+                                    initialValue: '123456'
                                 })}
                                 error={!!getFieldError('user_password')}
                                 clear
